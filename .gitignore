@@ -1,0 +1,8 @@
+work
+.nextflow
+.nextflow.log
+.nextflow.log.*
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
