@@ -135,7 +135,8 @@ The workflow consists of the following processes:
 
 
 1. **READ_AND_PREPROCESS**
-    Preprocess Data:
+
+   Preprocess Data:
         If the object type is 'CDS' (CellDataSet), the script preprocesses the data using the preprocess_cds function from Monocle3, with the specified number of dimensions (num_dim).
         If batch correction is requested (batch_correction is 'TRUE'), the script aligns the data using the align_cds function, considering the specified alignment group (alignment_group) and residual model formula (residual_model_formula_str).
 
@@ -146,7 +147,8 @@ The workflow consists of the following processes:
         The preprocessed data object (cds) is saved using the saveRDS function, and the resulting file is named "preprocessed_obj.rds".
 
 2. **REDUCE_AND_VISUALIZE**
-    Reduce Dimensionality (if 'CDS'):
+
+   Reduce Dimensionality (if 'CDS'):
         If the object type is 'CDS' (CellDataSet), the script reduces the dimensionality of the data using the reduce_dimension function from Monocle3.
 
     Generate and Save Plots:
@@ -161,7 +163,8 @@ The workflow consists of the following processes:
         The script clusters cells using the cluster_cells function from Monocle3.
 
 3. **VISUALIZE_GENES**
-    Parsing Input Parameters:
+
+   Parsing Input Parameters:
         The script parses boolean parameters (labelling and show_trajectory) from string values ("TRUE" or "FALSE").
 
     Visualize Cells:
@@ -169,7 +172,8 @@ The workflow consists of the following processes:
 
  
 4. **TRAJECTORY_GRAPH**
-    Parsing Input Parameters:
+
+   Parsing Input Parameters:
         The script parses boolean parameters (labelling, label_leaves, and label_branch_points) from string values ("TRUE" or "FALSE").
 
     Learn Graph:
@@ -179,7 +183,8 @@ The workflow consists of the following processes:
         The script uses the plot_cells function from Monocle3 to generate a plot of cells, with options for coloring cells by a specified parameter (color_cell), labeling cells by cluster, and optionally labeling leaves and branch points in the trajectory.
 
 5. **TRAJECTORY_GRAPH_PSUEDOTIME**
-    Parsing Input Parameters:
+
+   Parsing Input Parameters:
         The script parses boolean parameters (label_leaves and label_branch_points) from string values ("TRUE" or "FALSE").
 
     Learn Graph:
