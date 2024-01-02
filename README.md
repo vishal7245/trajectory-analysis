@@ -4,11 +4,11 @@ This document provides an overview and documentation for the Nextflow pipeline d
 The Pipeline is highly parameterized and can adapt to different datasets accordingly. Please refer to the parameters section
 
 ## Sample Output
-  ![Plot1](https://github.com/vishal7245/trajectory-analysis/blob/main/output/plot1.jpg)
-  ![Plot2](https://github.com/vishal7245/trajectory-analysis/blob/main/output/plot2.jpg)
-  ![Plot3](https://github.com/vishal7245/trajectory-analysis/blob/main/output/plot3.jpg)
-  ![Plot4](https://github.com/vishal7245/trajectory-analysis/blob/main/output/plot4.jpg)
-  ![Plot5](https://github.com/vishal7245/trajectory-analysis/blob/main/output/plot5.jpg)
+  ![Plot1](output/plot1.jpg)
+  ![Plot2](output/plot2.jpg)
+  ![Plot3](output/plot3.jpg)
+  ![Plot4](output/plot4.jpg)
+  ![Plot5](output/plot5.jpg)
 
 ## Prerequisites
 
