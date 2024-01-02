@@ -7,6 +7,7 @@ input_file <- args[1]
 output_file <- args[2]
 labelling <- args[3]
 color_cell <- args[4]
+obj_type <- args[5]
 
 if (labelling == "FALSE") {
     labelling <- FALSE
@@ -15,7 +16,10 @@ if (labelling == "FALSE") {
 }
  
 cds <- readRDS(input_file)
-cds <- reduce_dimension(cds)
+
+if (obj_type == 'CDS') {
+  cds <- reduce_dimension(cds)
+}
 
 plot_cells(cds, label_groups_by_cluster = labelling,  color_cells_by = color_cell)
 ggsave(file.path( output_file, "plot1.jpg"), device = "jpg", width = 8, height = 6, units = "in")

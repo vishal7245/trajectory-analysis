@@ -13,13 +13,14 @@ process READ_AND_PREPROCESS {
      val alignment_group
      val residual_model_formula_str
      val perform_batch_correction
+     val obj_type
 
     output:
      path 'preprocessed_obj.rds'
 
     script:
      """
-     script1.R $sample $num_dim $alignment_group $residual_model_formula_str $perform_batch_correction
+     script1.R $sample $num_dim $alignment_group $residual_model_formula_str $perform_batch_correction $obj_type
      """
 }
 
@@ -31,13 +32,14 @@ process REDUCE_AND_VISUALIZE {
      path preprocessed_obj
      val label_groups_by_cluster
      val colour_cells_by
+     val obj_type
 
     output:
      path 'reduced_obj.rds'
 
     script:
     """
-    script2.R $preprocessed_obj $params.outdir $label_groups_by_cluster $colour_cells_by
+    script2.R $preprocessed_obj $params.outdir $label_groups_by_cluster $colour_cells_by $obj_type
     """
 
 }
@@ -107,8 +109,8 @@ process TRAJECTORY_GRAPH_PSUEDOTIME {
 
 
 workflow {
-    result1 = READ_AND_PREPROCESS(file_reads.first(), params.num_dim , params.alignment_group, params.residual_model_formula_str, params.perform_batch_correction)
-    result2 = REDUCE_AND_VISUALIZE(result1, params.label_groups_by_cluster, params.colour_cells_by)
+    result1 = READ_AND_PREPROCESS(file_reads.first(), params.num_dim , params.alignment_group, params.residual_model_formula_str, params.perform_batch_correction, params.obj_type)
+    result2 = REDUCE_AND_VISUALIZE(result1, params.label_groups_by_cluster, params.colour_cells_by, params.obj_type)
     VISUALIZE_GENES(result2, params.label_groups_by_cluster, params.genes, params. show_trajectory_graph)
     TRAJECTORY_GRAPH(result2, params.label_groups_by_cluster, params.colour_cells_trajectory, params.label_leaves, params.label_branch_points)
     TRAJECTORY_GRAPH_PSUEDOTIME(result2, params.label_leaves, params.label_branch_points, params.psuedotime_column)

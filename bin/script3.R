@@ -23,7 +23,6 @@ if (show_trajectory == "FALSE") {
 }
 genes <- strsplit(genes, ",")
 genes <- unlist(genes)
-print(input_file)
 
 
 cds <- readRDS(input_file)
